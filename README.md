@@ -19,5 +19,5 @@ A third page will have a report of all user BMI's and the average BMI, informati
 
 ## Working On 
 
-- [x] Displays information in results page
+- [x] Displays BMI in results page
 - [ ] Informs User whether BMI is healthy or not
