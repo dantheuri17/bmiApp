@@ -2,11 +2,11 @@
 
 ## Desired 
 
-An application which takes user height and weight in one page Calculates and show whether BMI is under, above or at a healthy BMI
+An application which takes user height and weight in one page
 
--   A second page displays the results of the calculation and informs user whether BMI is under, above or at recommended BMI
+A second page displays the results of the calculation and informs user whether BMI is under, above or at recommended BMI
 
-A third page will have a report of all user BMI's and the average BMI, information about whether the average BMI is okay
+A third page will have a report of all user BMI's, the average of the user BMI's and information about whether the average BMI is okay
 
 
 
