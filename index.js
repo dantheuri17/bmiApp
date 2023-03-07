@@ -23,8 +23,6 @@ app.post('/calculateBMI', urlEncodedParser, function(request, response) {
     const height = request.body.height;
     const weight = request.body.weight;
     const newRecord = request.body;
-    
-    response.end(`Height: ${height} Weight: ${weight}`)
 
     const calculatedBMI = weight/height**2; 
 
@@ -33,7 +31,8 @@ app.post('/calculateBMI', urlEncodedParser, function(request, response) {
     bmiData.push(completeRecord)
     writeFileSync(bmiJSON, JSON.stringify(bmiData,null,2))
 
-
+    
+    return response.render('bmiResult', {completeRecord})
 
 })
 
