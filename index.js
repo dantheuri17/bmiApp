@@ -15,25 +15,10 @@ const bmiJSON = "bmiJSON.json"
 let rawbmiJSON = readFileSync(bmiJSON)
 let bmiData = JSON.parse(rawbmiJSON)
 
-// let bmiJSON = "bmi.json"
-
-// let rawBMI = readFileSync(bmiJSON)
-// let BMI = JSON.parse(rawBMI)
-
-// app.use(express.json())
-// app.use(express.urlencoded({extended: true}))
-// app.use(urlEncoder)
-
 app.get('/', function(request, response) {
-    response.render('home', {name: 'John Doe'})
-
+    response.render('bmiCalculator');
 })
 
-app.get('/contacts', function(request, response) {
-    response.render('contact_us');
-})
-
-const data = [];
 app.post('/calculateBMI', urlEncodedParser, function(request, response) {
     const height = request.body.height;
     const weight = request.body.weight;
