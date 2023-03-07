@@ -12,8 +12,8 @@ A third page will have a report of all user BMI's and the average BMI, informati
 
 ## Completed
 
-- [x] User can input values (kg, m) and the information will be stored in a JSON The BMI will be C
-- [x] Calculated and added to the same object with the user height and weight
+- [x] User can input values (kg, m) and the information will be stored in a JSON
+- [x] BMI Calculated and added to the same object as the user height and weight
 
 
 
