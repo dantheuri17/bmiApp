@@ -1,0 +1,40 @@
+body {
+background: linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%);}
+
+/*------ BMI Calculator Page ------*/
+
+
+.bmiCalculator--mainHeader {
+    color: white; 
+    text-align: center; 
+
+}
+
+.bmiCalculator--form {
+
+}
+
+.bmiCalculator--formContainer {
+   
+    color: white; 
+    font-size: 2em; 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    margin-top: 2em; 
+
+}
+
+.bmiCalculator--form > input[type=submit] {
+    padding: 1em; 
+ 
+
+}
+
+.bmiCalculator--form > input[type=text] {
+    
+}
+
+#weight, #height {
+    height: 2.5em; 
+}

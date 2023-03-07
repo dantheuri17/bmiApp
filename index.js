@@ -36,6 +36,11 @@ app.post('/calculateBMI', urlEncodedParser, function(request, response) {
 
 })
 
+app.get('/reports', function(request, response) {
+
+    return response.render('report', {bmiData})
+})
+
 
 app.listen(port)
 console.log('server is listening on port 3000')
