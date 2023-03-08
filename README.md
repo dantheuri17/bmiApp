@@ -16,6 +16,7 @@ A third page will have a report of all user BMI's and the average BMI, informati
 - [x] BMI Calculated and added to the same object as the user height and weight
 - [x] Displays BMI in results page
 - [x] Creates a report with all the records
+- [x] Displays the average of all the BMI's in the reports page
 
 
 
@@ -24,7 +25,7 @@ A third page will have a report of all user BMI's and the average BMI, informati
 
 - [ ] Add ID for each Record
 - [ ] Informs User whether BMI is healthy or not in the results page
-- [ ] BMI Explanation in the reports page
+- [ ] Report states whether the average BMI is healthy or not
 
 
 
