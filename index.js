@@ -23,6 +23,7 @@ app.post('/calculateBMI', urlEncodedParser, function(request, response) {
     const height = request.body.height;
     const weight = request.body.weight;
     const newRecord = request.body;
+   
 
     const calculatedBMI = weight/height**2; 
 
@@ -32,13 +33,31 @@ app.post('/calculateBMI', urlEncodedParser, function(request, response) {
     writeFileSync(bmiJSON, JSON.stringify(bmiData,null,2))
 
     
-    return response.render('bmiResult', {completeRecord})
+    
+
+    return response.render('bmiResult', { completeRecord })
 
 })
 
+244.74 + 346.32
+
 app.get('/reports', function(request, response) {
 
-    return response.render('report', {bmiData})
+     let sum = 0;
+			let average = 0;  
+
+
+    for (let i = 0; i < bmiData.length; i++) {
+			sum += bmiData[i].bmi;
+		}
+
+		console.log(sum);
+		console.log(bmiData.length);
+
+		average = sum / (bmiData.length); 
+
+
+    return response.render('report', {bmiData , average})
 })
 
 
