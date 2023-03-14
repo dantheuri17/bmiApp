@@ -43,6 +43,19 @@ background: linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3
     
 }
 
+.bmiResult--mainHeader, .bmiResult--explanation {
+    text-align: center; 
+    color: white;
+}
+
+.bmiResult--mainHeader {
+    font-size: 3em; 
+}
+
+.bmiResult--explanation {
+    font-size: 2em; 
+}
+
 #weight, #height {
     font-size: .85em;
     width: 16%;

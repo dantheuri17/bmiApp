@@ -26,22 +26,21 @@ app.post("/calculateBMI", urlEncodedParser, function (request, response) {
 
 	const calculatedBMI = weight / height ** 2;
 
-	const completeRecord = { ...newRecord, bmi: calculatedBMI };
+	const completeBMIObject = { ...newRecord, bmi: calculatedBMI };
 
-	bmiData.push(completeRecord);
+	bmiData.push(completeBMIObject);
 	writeFileSync(bmiJSON, JSON.stringify(bmiData, null, 2));
 
-	if (completeRecord.bmi > 0) {
-		if (completeRecord.bmi >= 25 && completeRecord.bmi <= 29.9 ) explainBMI = "Overweight"; //
-		else if (completeRecord.bmi > 18.5 && completeRecord.bmi <=24.9) explainBMI = "Normal";
-		else if (completeRecord.bmi < 18.5) explainBMI = "Underweight";
-        else if (completeRecord.bmi >= 30) explainBMI = "Obese"
+	if (completeBMIObject.bmi > 0) {
+		if (completeBMIObject.bmi >= 25 && completeBMIObject.bmi <= 29.9 ) explainBMI = "Overweight";
+		else if (completeBMIObject.bmi > 18.5 && completeBMIObject.bmi <=24.9) explainBMI = "Normal";
+		else if (completeBMIObject.bmi < 18.5) explainBMI = "Underweight";
+        else if (completeBMIObject.bmi >= 30) explainBMI = "Obese"
 	}
 
-	return response.render("bmiResult", { completeRecord, explainBMI });
+	return response.render("bmiResult", { completeBMIObject, explainBMI });
 });
 
-244.74 + 346.32;
 
 app.get("/reports", function (request, response) {
 	let sum = 0;
