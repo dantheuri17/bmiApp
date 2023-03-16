@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const { readFileSync, writeFileSync } = require("fs");
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set("views", "views");
 app.set("view engine", "hbs");
@@ -31,12 +31,11 @@ app.post("/calculateBMI", urlEncodedParser, function (request, response) {
 	bmiData.push(completeBMIObject);
 	writeFileSync(bmiJSON, JSON.stringify(bmiData, null, 2));
 
-	if (completeBMIObject.bmi > 0) {
 		if (completeBMIObject.bmi >= 25 && completeBMIObject.bmi <= 29.9 ) explainBMI = "Overweight";
 		else if (completeBMIObject.bmi > 18.5 && completeBMIObject.bmi <=24.9) explainBMI = "Normal";
 		else if (completeBMIObject.bmi < 18.5) explainBMI = "Underweight";
         else if (completeBMIObject.bmi >= 30) explainBMI = "Obese"
-	}
+	
 
 	return response.render("bmiResult", { completeBMIObject, explainBMI });
 });
@@ -68,4 +67,4 @@ app.get("/reports", function (request, response) {
 });
 
 app.listen(port);
-console.log("server is listening on port 3000");
+console.log(`server is listening on port ${port}`);
