@@ -76,7 +76,7 @@ app.get("/reports", function (request, response) {
 	return response.render("report", { bmiData, average, explainAverage });
 });
 
-app.listen(port);
+const server = app.listen(port);
 console.log(`server is listening on port ${port}`);
 
-module.exports = {calcBMI, getStatus}
+module.exports = {calcBMI, server}
