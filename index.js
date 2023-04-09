@@ -18,25 +18,35 @@ app.get("/", function (request, response) {
 	response.render("bmiCalculator");
 });
 
+function calcBMI(height, weight) {
+	const calculatedBMI = weight / height ** 2;
+	return calculatedBMI;
+
+}
+
+function getStatus (bmi) {
+	if (bmi >= 25 && bmi <= 29.9) explainBMI = "Overweight";
+	else if (bmi > 18.5 && bmi <= 24.9) explainBMI = "Normal";
+	else if (bmi < 18.5) explainBMI = "Underweight";
+	else if (bmi >= 30) explainBMI = "Obese";
+	return explainBMI
+}
+
 app.post("/calculateBMI", urlEncodedParser, function (request, response) {
 	const height = request.body.height;
 	const weight = request.body.weight;
 	const newRecord = request.body;
 	let explainBMI = "";
 
-	const calculatedBMI = weight / height ** 2;
+	let calculatedBMI = calcBMI(height, weight)
 
 	const completeBMIObject = { ...newRecord, bmi: calculatedBMI };
 
+	let bmi = completeBMIObject.bmi
+
 	bmiData.push(completeBMIObject);
 	writeFileSync(bmiJSON, JSON.stringify(bmiData, null, 2));
-
-		if (completeBMIObject.bmi >= 25 && completeBMIObject.bmi <= 29.9 ) explainBMI = "Overweight";
-		else if (completeBMIObject.bmi > 18.5 && completeBMIObject.bmi <=24.9) explainBMI = "Normal";
-		else if (completeBMIObject.bmi < 18.5) explainBMI = "Underweight";
-        else if (completeBMIObject.bmi >= 30) explainBMI = "Obese"
-	
-
+	explainBMI = getStatus(bmi)
 	return response.render("bmiResult", { completeBMIObject, explainBMI });
 });
 
@@ -68,3 +78,5 @@ app.get("/reports", function (request, response) {
 
 app.listen(port);
 console.log(`server is listening on port ${port}`);
+
+module.exports = {calcBMI, getStatus}
