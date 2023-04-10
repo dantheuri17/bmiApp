@@ -32,5 +32,6 @@ jobs:
         sleep: 30000
     - run: npm ci
     - run: npm test
+    - run: node acceptance
 
 # Just adding a comment to check my worka

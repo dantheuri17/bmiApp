@@ -20,8 +20,8 @@ app.get("/", function (request, response) {
 
 function calcBMI(height, weight) {
 	const calculatedBMI = weight / height ** 2;
-	return calculatedBMI;
-
+	const roundedBMI = calculatedBMI.toFixed(2);
+	return parseFloat(roundedBMI);
 }
 
 function getStatus (bmi) {
