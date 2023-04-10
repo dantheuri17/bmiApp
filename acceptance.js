@@ -5,7 +5,7 @@ try {
     (async () => {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto("http://localhost:3000/");
+        await page.goto("https://bmiapp.onrender.com");
         await page.waitForSelector("#height");
         await page.type("#height", "1.8");
         await page.type("#weight", "75");
