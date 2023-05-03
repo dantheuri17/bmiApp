@@ -3,7 +3,7 @@ const assert = require ("assert");
 
 try {
     (async () => {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch( {headless: false});
         const page = await browser.newPage();
         await page.goto("https://bmiapp.onrender.com");
         await page.waitForSelector("#height");
